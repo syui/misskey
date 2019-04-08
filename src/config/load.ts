@@ -22,7 +22,21 @@ const path = process.env.NODE_ENV == 'test'
 
 export default function load() {
 	const config: Source = process.env.HEROKU === 'true' ? {
-		// Add required properties here
+		mongodb: {
+			host: new URL(process.env.REDIS_URL).hostname,
+			port: parseInt(new URL(process.env.MONGODB_URI).port),
+			db: new URL(process.env.MONGODB_URI).pathname.slice(1),
+			user: new URL(process.env.MONGODB_URI).username,
+			pass: new URL(process.env.MONGODB_URI).password,
+		},	
+		redis: {
+			host: new URL(process.env.REDIS_URL).hostname,
+			port: parseInt(new URL(process.env.REDIS_URL).port),
+			pass: new URL(process.env.REDIS_URL).password,
+		},
+		drive: {
+			storage: 'db',
+		}
 	} : yaml.safeLoad(fs.readFileSync(path, 'utf-8'));
 
 	const mixin = {} as Mixin;
