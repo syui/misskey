@@ -7,7 +7,7 @@ import MainStreamConnection from './stream';
 import { ParsedUrlQuery } from 'querystring';
 import authenticate from './authenticate';
 import { EventEmitter } from 'events';
-import config from '../../config';
+//import config from '../../config';
 
 module.exports = (server: http.Server) => {
 	// Init websocket server
@@ -23,10 +23,9 @@ module.exports = (server: http.Server) => {
 
 		let ev: EventEmitter;
 
-		if (config.redis) {
-			// Connect to Redis
+		if (process.env.REDIS_URL) {
 			const subscriber = redis.createClient(
-				config.redis.port, config.redis.host);
+				parseInt(new URL(process.env.REDIS_URL).port), new URL(process.env.REDIS_URL).hostname);
 
 			subscriber.subscribe('misskey');
 

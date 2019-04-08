@@ -1,7 +1,7 @@
 import * as Queue from 'bull';
 import * as httpSignature from 'http-signature';
 
-import config from '../config';
+//import config from '../config';
 import { ILocalUser } from '../models/user';
 import { program } from '../argv';
 
@@ -12,14 +12,14 @@ import { queueLogger } from './logger';
 import { IDriveFile } from '../models/drive-file';
 
 function initializeQueue(name: string) {
-	return new Queue(name, config.redis != null ? {
+	return new Queue(name, process.env.REDIS_URL != null ? {
 		redis: {
-			port: config.redis.port,
-			host: config.redis.host,
-			password: config.redis.pass,
-			db: config.redis.db || 0,
+			port: parseInt(new URL(process.env.REDIS_URL).port),
+			host: new URL(process.env.REDIS_URL).hostname,
+			password: new URL(process.env.REDIS_URL).password,
+			db: 0,
 		},
-		prefix: config.redis.prefix ? `${config.redis.prefix}:queue` : 'queue'
+		prefix: 'queue'
 	} : null);
 }
 

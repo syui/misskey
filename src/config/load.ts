@@ -21,15 +21,23 @@ const path = process.env.NODE_ENV == 'test'
 	: `${dir}/default.yml`;
 
 export default function load() {
-	const config = yaml.safeLoad(fs.readFileSync(path, 'utf-8')) as Source;
+	const config: Source = process.env.HEROKU === 'true' ? {
+		// Add required properties here
+	} : yaml.safeLoad(fs.readFileSync(path, 'utf-8'));
 
 	const mixin = {} as Mixin;
+
+	config.url = config.url || process.env.LOCAL_DOMAIN;
 
 	const url = validateUrl(config.url);
 
 	config.url = normalizeUrl(config.url);
 
 	config.port = config.port || parseInt(process.env.PORT, 10);
+
+	config.disableHsts = config.disableHsts || process.env.DISABLE_HSTS === "true" ? true : false;
+
+	config.clusterLimit = config.clusterLimit || parseInt(process.env.CLUSTER_LIMIT);
 
 	mixin.host = url.host;
 	mixin.hostname = url.hostname;

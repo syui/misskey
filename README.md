@@ -1,11 +1,15 @@
 <a href="https://ai.misskey.xyz/"><img src="https://github.com/syuilo/misskey/blob/develop/assets/ai-orig.png?raw=true" align="right" height="320px"/></a>
 
+
 [![Misskey](/assets/title.png)](https://misskey.xyz/)
 ================================================================
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?button-url=https://github.com/syui/misskey/tree/heroku&template=https://github.com/syui/misskey/tree/heroku)
 
 [![CircleCI](https://img.shields.io/circleci/project/github/syuilo/misskey.svg?style=for-the-badge&logo=circleci)](https://circleci.com/gh/syuilo/misskey)
 [![Dependencies](https://img.shields.io/david/syuilo/misskey.svg?style=for-the-badge&logo=npm)](https://david-dm.org/syuilo/misskey)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge&logo=github)](http://makeapullrequest.com)
+
 
 **A forever evolving, sophisticated microblogging platform.**
 
@@ -19,6 +23,7 @@ Why don't you take a short break from the hustle and bustle of the city, and div
 <a href="https://www.patreon.com/syuilo"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" alt="Become a Patron!" width="160" /></a>
 
 ![](https://ja.mstdn.wiki/images/e/ed/Deck.jpg)
+
 
 :sparkles: Features
 ----------------------------------------------------------------

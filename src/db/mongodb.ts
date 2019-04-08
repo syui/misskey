@@ -1,9 +1,6 @@
-import config from '../config';
+//import config from '../config';
 
-const u = config.mongodb.user ? encodeURIComponent(config.mongodb.user) : null;
-const p = config.mongodb.pass ? encodeURIComponent(config.mongodb.pass) : null;
-
-const uri = `mongodb://${u && p ? `${u}:${p}@` : ''}${config.mongodb.host}:${config.mongodb.port}/${config.mongodb.db}`;
+const uri = process.env.MONGODB_URI;
 
 /**
  * monk
@@ -27,7 +24,7 @@ const nativeDbConn = async (): Promise<mongodb.Db> => {
 	const db = await ((): Promise<mongodb.Db> => new Promise((resolve, reject) => {
 		mongodb.MongoClient.connect(uri, { useNewUrlParser: true }, (e: Error, client: any) => {
 			if (e) return reject(e);
-			resolve(client.db(config.mongodb.db));
+			resolve(client.db(new URL(process.env.MONGODB_URI).pathname.slice(1)));
 		});
 	}))();
 
