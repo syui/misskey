@@ -6,7 +6,7 @@
 [![CircleCI](https://img.shields.io/circleci/project/github/syuilo/misskey.svg?style=for-the-badge&logo=circleci)](https://circleci.com/gh/syuilo/misskey)
 [![Dependencies](https://img.shields.io/david/syuilo/misskey.svg?style=for-the-badge&logo=npm)](https://david-dm.org/syuilo/misskey)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge&logo=github)](http://makeapullrequest.com)
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?button-url=https://github.com/syui/misskey/tree/master&template=https://github.com/syui/misskey/tree/master)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?button-url=https://github.com/syui/misskey/tree/v10&template=https://github.com/syui/misskey/tree/v10)
 
 **A forever evolving, sophisticated microblogging platform.**
 
